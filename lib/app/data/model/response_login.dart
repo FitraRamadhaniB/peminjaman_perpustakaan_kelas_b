@@ -1,42 +1,42 @@
 /// status : 200
 /// message : "Login Success"
-/// DataLogin : {"id":1,"username":"testing","nama":"Romli","telp":"085334","alamat":"Solo","role":"PETUGAS","created_at":"2024-01-09T01:55:16.000000Z","updated_at":"2024-01-09T01:55:16.000000Z"}
+/// data : {"id":2,"username":"said","nama":"said","telp":"085","alamat":"alamat","role":"PEMINJAM","created_at":"2024-01-09T10:00:57.000000Z","updated_at":"2024-01-09T10:00:57.000000Z"}
 
 class ResponseLogin {
   ResponseLogin({
       this.status, 
       this.message, 
-      this.DataLogin,});
+      this.data,});
 
   ResponseLogin.fromJson(dynamic json) {
     status = json['status'];
     message = json['message'];
-    DataLogin = json['DataLogin'] != null ? Data.fromJson(json['DataLogin']) : null;
+    data = json['data'] != null ? Data.fromJson(json['data']) : null;
   }
   int? status;
   String? message;
-  Data? DataLogin;
+  Data? data;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
     map['status'] = status;
     map['message'] = message;
-    if (DataLogin != null) {
-      map['DataLogin'] = DataLogin?.toJson();
+    if (data != null) {
+      map['data'] = data?.toJson();
     }
     return map;
   }
 
 }
 
-/// id : 1
-/// username : "testing"
-/// nama : "Romli"
-/// telp : "085334"
-/// alamat : "Solo"
-/// role : "PETUGAS"
-/// created_at : "2024-01-09T01:55:16.000000Z"
-/// updated_at : "2024-01-09T01:55:16.000000Z"
+/// id : 2
+/// username : "said"
+/// nama : "said"
+/// telp : "085"
+/// alamat : "alamat"
+/// role : "PEMINJAM"
+/// created_at : "2024-01-09T10:00:57.000000Z"
+/// updated_at : "2024-01-09T10:00:57.000000Z"
 
 class Data {
   Data({

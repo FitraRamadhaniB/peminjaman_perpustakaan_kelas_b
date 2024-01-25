@@ -38,18 +38,18 @@ class RegisterController extends GetxController {
       FocusScope.of(Get.context!).unfocus();
       formKey.currentState?.save();
       if (formKey.currentState!.validate()) {
-        final response = await ApiProvider.instance().post(Endpoint.book,
+        final response = await ApiProvider.instance().post(Endpoint.register,
             data:
             {
-              "nama": namaController,
-              "username": usernameController,
-              "telp": telpController,
-              "alamat": alamatController,
-              "password": passwordController,
+              "nama": namaController.text.toString(),
+              "username": usernameController.text.toString(),
+              "telp": telpController.text.toString(),
+              "alamat": alamatController.text.toString(),
+              "password": passwordController.text.toString(),
 
             }
         );
-        if (response.statusCode == 200) {
+        if (response.statusCode == 201) {
           Get.offAllNamed(Routes.LOGIN);
         } else {
           Get.snackbar("Sorry", "Login Gagal", backgroundColor: Colors.orange);
